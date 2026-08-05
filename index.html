@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="แสดงผลงานวิจัยและบทความทางวิชาการ - Research Portfolio">
+    <title>Research Portfolio | ผลงานวิจัยและบทความ</title>
+
+    <!-- Tailwind CSS v3 CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Noto Sans Thai', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#2563EB',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            800: '#1e3a8a',
+                            900: '#172554',
+                            950: '#0f1a3d',
+                        },
+                        secondary: {
+                            50: '#ecfeff',
+                            100: '#cffafe',
+                            200: '#a5f3fc',
+                            300: '#67e8f9',
+                            400: '#22d3ee',
+                            500: '#06B6D4',
+                            600: '#0891b2',
+                            700: '#0e7490',
+                            800: '#155e75',
+                            900: '#164e63',
+                        },
+                        accent: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10B981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                        surface: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            700: '#1e293b',
+                            800: '#0f172a',
+                            900: '#020617',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 2s infinite',
+                        'gradient': 'gradient 8s ease infinite',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-gentle': 'bounceGentle 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        bounceGentle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Thai:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #2563EB, #06B6D4);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #60a5fa, #22d3ee);
+        }
+
+        /* Animated gradient background */
+        .gradient-bg {
+            background: linear-gradient(-45deg, #0f172a, #172554, #1e3a8a, #0f172a);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        /* Glass morphism effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(37, 99, 235, 0.25);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.12),
+                0 0 30px rgba(6, 182, 212, 0.06);
+        }
+
+        /* Text gradients */
+        .text-gradient {
+            background: linear-gradient(135deg, #60a5fa, #06B6D4, #10B981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-gradient-subtle {
+            background: linear-gradient(135deg, #93c5fd, #67e8f9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Floating orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.12;
+            pointer-events: none;
+        }
+
+        /* Section reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Category filter buttons */
+        .filter-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .filter-btn:hover::before {
+            left: 100%;
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #2563EB, #06B6D4);
+            border-color: transparent;
+            color: white;
+        }
+
+        /* PDF viewer modal */
+        .modal-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            transform: scale(0.95) translateY(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        /* Nav active state */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2563EB, #06B6D4);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Badge styles */
+        .badge-research {
+            background: linear-gradient(135deg, #2563EB, #1d4ed8);
+        }
+
+        .badge-article {
+            background: linear-gradient(135deg, #06B6D4, #0891b2);
+        }
+
+        /* Scroll progress bar */
+        #scroll-progress {
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 0.1s linear;
+        }
+
+        /* Hero mesh gradient */
+        .mesh-gradient {
+            background:
+                radial-gradient(at 20% 80%, rgba(37, 99, 235, 0.25) 0%, transparent 50%),
+                radial-gradient(at 80% 20%, rgba(6, 182, 212, 0.18) 0%, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+        }
+
+        /* Divider line */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.2), rgba(6, 182, 212, 0.2), transparent);
+        }
+    </style>
+</head>
+
+<body class="bg-surface-900 text-white font-sans overflow-x-hidden">
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"
+        class="fixed top-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 z-[9999]">
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <!-- Logo -->
+                <a href="#hero" class="flex items-center space-x-3 group">
+                    <div
+                        class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <span class="text-lg font-bold text-gradient hidden sm:inline">Research Port</span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#hero"
+                        class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">หน้าแรก</a>
+                    <a href="#research"
+                        class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">ผลงานวิจัย</a>
+                    <a href="#articles"
+                        class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">บทความ</a>
+                    <a href="#all-works"
+                        class="nav-link text-sm font-medium text-gray-400 hover:text-white transition-colors">ผลงานทั้งหมด</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg glass hover:bg-white/10 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden glass border-t border-white/10">
+            <div class="px-4 py-4 space-y-1">
+                <a href="#hero"
+                    class="block px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-all">หน้าแรก</a>
+                <a href="#research"
+                    class="block px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-all">ผลงานวิจัย</a>
+                <a href="#articles"
+                    class="block px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-all">บทความ</a>
+                <a href="#all-works"
+                    class="block px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition-all">ผลงานทั้งหมด</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background effects -->
+        <div class="absolute inset-0 gradient-bg"></div>
+        <div class="absolute inset-0 mesh-gradient"></div>
+
+        <!-- Floating orbs -->
+        <div class="orb w-[500px] h-[500px] bg-primary-500 top-1/4 -left-64 animate-float"></div>
+        <div class="orb w-[400px] h-[400px] bg-secondary-500 bottom-1/4 -right-48 animate-float-delayed"></div>
+        <div
+            class="orb w-[300px] h-[300px] bg-accent-500 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse-slow">
+        </div>
+
+        <!-- Particle canvas -->
+        <canvas id="particle-canvas" class="absolute inset-0 pointer-events-none"></canvas>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <div class="animate-fade-in">
+                <!-- Decorative line -->
+                <div class="flex items-center justify-center space-x-4 mb-8">
+                    <div class="h-px w-12 bg-gradient-to-r from-transparent to-primary-400/60"></div>
+                    <span class="text-secondary-300/80 text-xs font-medium tracking-[0.3em] uppercase">Prapakorn Kanjina
+                        Portfolio</span>
+                    <div class="h-px w-12 bg-gradient-to-l from-transparent to-primary-400/60"></div>
+                </div>
+
+                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
+                    <span class="text-gradient">ผลงานวิจัย</span>
+                    <br>
+                    <span class="text-white/80 text-4xl sm:text-5xl md:text-6xl lg:text-7xl">และ</span>
+                    <span class="text-gradient">บทความ</span>
+                </h1>
+
+                <p class="text-base sm:text-lg text-gray-400/90 max-w-xl mx-auto mb-10 leading-relaxed">
+                    รวบรวมผลงานวิจัยและบทความทางวิชาการ
+                    <br class="hidden sm:block">
+                    ด้านสถิติ การวิเคราะห์ข้อมูล และการศึกษา
+                </p>
+
+                <!-- CTA buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#research"
+                        class="group relative px-7 py-3.5 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-xl font-semibold text-white text-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/20 hover:scale-105">
+                        <span class="relative z-10 flex items-center space-x-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            <span>ดูผลงานวิจัย</span>
+                        </span>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-secondary-500 to-primary-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        </div>
+                    </a>
+                    <a href="#articles"
+                        class="px-7 py-3.5 glass rounded-xl font-semibold text-gray-300 text-sm hover:text-white hover:bg-white/8 transition-all duration-300 hover:scale-105 flex items-center space-x-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                        </svg>
+                        <span>ดูบทความ</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce-gentle">
+                <div class="flex flex-col items-center space-y-2 text-gray-500/60">
+                    <span class="text-[10px] tracking-widest uppercase">เลื่อนลง</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="relative py-24 overflow-hidden">
+        <div class="absolute inset-0 bg-surface-900"></div>
+        <div class="orb w-80 h-80 bg-primary-500 -top-40 -right-40 animate-float"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="reveal text-center mb-14">
+                <div class="inline-flex items-center px-4 py-1.5 rounded-full glass mb-5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-primary-400 mr-2 animate-pulse"></span>
+                    <span class="text-xs text-primary-300 font-medium tracking-wider uppercase">Research</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-3">
+                    <span class="text-gradient">ผลงานวิจัย</span>
+                </h2>
+                <p class="text-gray-400/80 max-w-lg mx-auto">ผลงานวิจัยที่ผ่านการตีพิมพ์และเผยแพร่</p>
+            </div>
+
+            <!-- Research Card -->
+            <div class="reveal max-w-3xl mx-auto">
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <!-- Card gradient top border -->
+                    <div class="h-0.5 bg-gradient-to-r from-primary-500 via-secondary-500 to-primary-400"></div>
+
+                    <div class="p-7 md:p-9">
+                        <div class="flex flex-col md:flex-row gap-7">
+                            <!-- Left: Icon & Badge -->
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500/15 to-secondary-500/15 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                                    <svg class="w-8 h-8 text-primary-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                    </svg>
+                                </div>
+                                <div class="mt-3">
+                                    <span
+                                        class="badge-research px-2.5 py-1 rounded-full text-[11px] font-semibold text-white">ผลงานวิจัย</span>
+                                </div>
+                            </div>
+
+                            <!-- Right: Content -->
+                            <div class="flex-1">
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-white mb-3 leading-snug group-hover:text-primary-300 transition-colors">
+                                    การตรวจสอบค่าความคลาดเคลื่อนในข้อมูลแบบปรับตัวได้
+                                </h3>
+
+                                <p class="text-gray-400/80 text-sm leading-relaxed mb-5">
+                                    งานวิจัยที่มุ่งเน้นการพัฒนาวิธีการตรวจสอบค่าความคลาดเคลื่อน (Error Detection)
+                                    ในชุดข้อมูล
+                                    โดยใช้แนวทางแบบปรับตัวได้ (Adaptive)
+                                    เพื่อเพิ่มความแม่นยำและประสิทธิภาพในการวิเคราะห์ข้อมูล
+                                </p>
+
+                                <!-- Tags -->
+                                <div class="flex flex-wrap gap-2 mb-5">
+                                    <span
+                                        class="px-2.5 py-1 rounded-lg bg-primary-500/10 text-primary-300 text-[11px] font-medium border border-primary-500/15">สถิติ</span>
+                                    <span
+                                        class="px-2.5 py-1 rounded-lg bg-secondary-500/10 text-secondary-300 text-[11px] font-medium border border-secondary-500/15">การวิเคราะห์ข้อมูล</span>
+                                    <span
+                                        class="px-2.5 py-1 rounded-lg bg-accent-500/10 text-accent-300 text-[11px] font-medium border border-accent-500/15">Adaptive
+                                        Methods</span>
+                                    <span
+                                        class="px-2.5 py-1 rounded-lg bg-blue-500/10 text-blue-300 text-[11px] font-medium border border-blue-500/15">Error
+                                        Detection</span>
+                                </div>
+
+                                <!-- Action buttons -->
+                                <div class="flex flex-col sm:flex-row gap-3">
+                                    <button
+                                        onclick="openPdfViewer('projet/การตรวจสอบค่าความคลาดเคลื่อนในข้อมูลแบบปรับตัวได้.pdf', 'การตรวจสอบค่าความคลาดเคลื่อนในข้อมูลแบบปรับตัวได้')"
+                                        class="inline-flex items-center justify-center px-5 py-2.5 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl text-sm font-medium text-white hover:from-primary-400 hover:to-primary-500 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/20 hover:scale-105">
+                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                        </svg>
+                                        อ่านผลงาน
+                                    </button>
+                                    <button
+                                        onclick="downloadPdf('projet/การตรวจสอบค่าความคลาดเคลื่อนในข้อมูลแบบปรับตัวได้.pdf', 'การตรวจสอบค่าความคลาดเคลื่อนในข้อมูลแบบปรับตัวได้.pdf')"
+                                        class="inline-flex items-center justify-center px-5 py-2.5 glass rounded-xl text-sm font-medium text-gray-400 hover:text-white hover:bg-white/8 transition-all duration-300 hover:scale-105">
+                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                        </svg>
+                                        ดาวน์โหลด PDF
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider max-w-4xl mx-auto"></div>
+
+    <!-- Articles Section -->
+    <section id="articles" class="relative py-24 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-surface-900 via-surface-800/30 to-surface-900"></div>
+        <div class="orb w-96 h-96 bg-secondary-500 -bottom-48 -left-48 animate-float-delayed"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="reveal text-center mb-14">
+                <div class="inline-flex items-center px-4 py-1.5 rounded-full glass mb-5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-secondary-400 mr-2 animate-pulse"></span>
+                    <span class="text-xs text-secondary-300 font-medium tracking-wider uppercase">Articles</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-3">
+                    <span class="text-gradient">บทความ</span>
+                </h2>
+                <p class="text-gray-400/80 max-w-lg mx-auto">บทความทางวิชาการที่ได้รับการตีพิมพ์</p>
+            </div>
+
+            <!-- Articles Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+
+                <!-- Article Card 1 -->
+                <article class="reveal glass-card rounded-2xl overflow-hidden group"
+                    aria-label="บทความวิชาการ: ปัจจัยที่มีผลต่อความสุขในการเรียน">
+                    <!-- Top gradient border -->
+                    <div class="h-0.5 bg-gradient-to-r from-secondary-500 via-secondary-400 to-accent-500"></div>
+
+                    <div class="p-7">
+                        <!-- Badges row -->
+                        <div class="flex flex-wrap items-center gap-2 mb-4">
+                            <span
+                                class="badge-article px-2.5 py-1 rounded-full text-[11px] font-semibold text-white inline-flex items-center gap-1">
+                                🏛️ Conference Proceeding
+                            </span>
+                            <span
+                                class="px-2.5 py-1 rounded-full text-[11px] font-semibold text-white bg-gradient-to-r from-primary-500 to-primary-600 inline-flex items-center gap-1">
+                                📅 2025
+                            </span>
+                        </div>
+
+                        <!-- Article title -->
+                        <h3
+                            class="text-lg md:text-xl font-bold text-white mb-3 leading-snug group-hover:text-secondary-300 transition-colors">
+                            ปัจจัยที่มีผลต่อความสุขในการเรียนของนักศึกษามหาวิทยาลัยราชภัฏเชียงใหม่ ศูนย์แม่ริม
+                        </h3>
+
+                        <!-- Publication details -->
+                        <div class="flex items-start gap-2 mb-5">
+                            <span class="text-base mt-0.5 flex-shrink-0">🏛️</span>
+                            <p class="text-gray-400/80 text-sm leading-relaxed">
+                                การประชุมวิชาการระดับชาติ วิทยาศาสตร์ เทคโนโลยี และนวัตกรรม (มหาวิทยาลัยแม่โจ้) ครั้งที่
+                                6
+                            </p>
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="h-px w-full bg-gradient-to-r from-transparent via-white/8 to-transparent mb-5">
+                        </div>
+
+                        <!-- Action buttons -->
+                        <div class="flex flex-col sm:flex-row gap-2.5">
+                            <button
+                                onclick="openPdfViewer('projet/ปัจจัยที่มีผลต่อความสุขในการเรียนของนักศึกษามหาวิทยาลัยราชภัฏเชียงใหม่ ศูนย์แม่ริม.pdf', 'ปัจจัยที่มีผลต่อความสุขในการเรียนของนักศึกษามหาวิทยาลัยราชภัฏเชียงใหม่ ศูนย์แม่ริม')"
+                                class="inline-flex items-center justify-center px-5 py-2.5 bg-gradient-to-r from-secondary-500 to-secondary-600 rounded-xl text-xs font-medium text-white hover:from-secondary-400 hover:to-secondary-500 transition-all duration-300 hover:shadow-lg hover:shadow-secondary-500/20 hover:scale-105 group/btn">
+                                <span class="mr-2 text-sm group-hover/btn:animate-bounce">📄</span>
+                                ดูบทความ
+                            </button>
+                            <a href="https://sciencebase.mju.ac.th/csti2025/proceeding2025/proceeding2025r.pdf"
+                                target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center justify-center px-5 py-2.5 glass rounded-xl text-xs font-medium text-gray-300 hover:text-white hover:bg-white/8 transition-all duration-300 hover:scale-105 group/btn">
+                                <span class="mr-2 text-sm group-hover/btn:animate-bounce">📚</span>
+                                ดูเล่มเต็ม
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article Card 2 -->
+                <article class="reveal glass-card rounded-2xl overflow-hidden group" style="transition-delay: 0.12s;"
+                    aria-label="บทความวิชาการ: การพัฒนาสมการถดถอยเชิงเส้นพหุคูณ">
+                    <!-- Top gradient border -->
+                    <div class="h-0.5 bg-gradient-to-r from-accent-500 via-accent-400 to-secondary-500"></div>
+
+                    <div class="p-7">
+                        <!-- Badges row -->
+                        <div class="flex flex-wrap items-center gap-2 mb-4">
+                            <span
+                                class="badge-article px-2.5 py-1 rounded-full text-[11px] font-semibold text-white inline-flex items-center gap-1">
+                                🏛️ Conference Proceeding
+                            </span>
+                            <span
+                                class="px-2.5 py-1 rounded-full text-[11px] font-semibold text-white bg-gradient-to-r from-primary-500 to-primary-600 inline-flex items-center gap-1">
+                                📅 2025
+                            </span>
+                        </div>
+
+                        <!-- Article title -->
+                        <h3
+                            class="text-lg md:text-xl font-bold text-white mb-3 leading-snug group-hover:text-accent-300 transition-colors">
+                            การพัฒนาสมการถดถอยเชิงเส้นพหุคูณเพื่อคาดการณ์การเผาผลาญพลังงานของผู้เข้าใช้บริการยิม
+                        </h3>
+
+                        <!-- Publication details -->
+                        <div class="flex items-start gap-2 mb-5">
+                            <span class="text-base mt-0.5 flex-shrink-0">🏛️</span>
+                            <p class="text-gray-400/80 text-sm leading-relaxed">
+                                การประชุมวิชาการวิทยาศาสตร์และเทคโนโลยี ระดับชาติ ครั้งที่ 3 คณะวิทยาศาสตร์และเทคโนโลยี
+                                มหาวิทยาลัยราชภัฏเชียงใหม่ ประจำปี พ.ศ. 2568
+                            </p>
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="h-px w-full bg-gradient-to-r from-transparent via-white/8 to-transparent mb-5">
+                        </div>
+
+                        <!-- Action buttons -->
+                        <div class="flex flex-col sm:flex-row gap-2.5">
+                            <button
+                                onclick="openPdfViewer('projet/การพัฒนาสมการถดถอยเชิงเส้นพหุคูณเพื่อคาดการณ์การเผาผลาญพลังงาน.pdf', 'การพัฒนาสมการถดถอยเชิงเส้นพหุคูณเพื่อคาดการณ์การเผาผลาญพลังงานของผู้เข้าใช้บริการยิม')"
+                                class="inline-flex items-center justify-center px-5 py-2.5 bg-gradient-to-r from-accent-500 to-accent-600 rounded-xl text-xs font-medium text-white hover:from-accent-400 hover:to-accent-500 transition-all duration-300 hover:shadow-lg hover:shadow-accent-500/20 hover:scale-105 group/btn">
+                                <span class="mr-2 text-sm group-hover/btn:animate-bounce">📄</span>
+                                ดูบทความ
+                            </button>
+                            <a href="https://sci-techconference2026.cmru.ac.th/data/proceeding2025.pdf" target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center justify-center px-5 py-2.5 glass rounded-xl text-xs font-medium text-gray-300 hover:text-white hover:bg-white/8 transition-all duration-300 hover:scale-105 group/btn">
+                                <span class="mr-2 text-sm group-hover/btn:animate-bounce">📚</span>
+                                ดูเล่มเต็ม
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider max-w-4xl mx-auto"></div>
+
+    <!-- All Works Section (with filter) -->
+    <section id="all-works" class="relative py-24 overflow-hidden">
+        <div class="absolute inset-0 bg-surface-900"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="reveal text-center mb-12">
+                <div class="inline-flex items-center px-4 py-1.5 rounded-full glass mb-5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent-400 mr-2 animate-pulse"></span>
+                    <span class="text-xs text-accent-300 font-medium tracking-wider uppercase">All Works</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-3">
+                    <span class="text-gradient">ผลงานทั้งหมด</span>
+                </h2>
+                <p class="text-gray-400/80 max-w-lg mx-auto">เลือกดูผลงานตามประเภท</p>
+            </div>
+
+            <!-- Filter buttons -->
+            <div class="reveal flex flex-wrap justify-center gap-2.5 mb-10">
+                <button
+                    class="filter-btn active px-5 py-2 rounded-full text-xs font-medium text-white border border-white/10 transition-all"
+                    data-filter="all">
+                    ทั้งหมด
+                </button>
+                <button
+                    class="filter-btn px-5 py-2 rounded-full text-xs font-medium text-gray-400 hover:text-white border border-white/10 transition-all"
+                    data-filter="research">
+                    ผลงานวิจัย
+                </button>
+                <button
+                    class="filter-btn px-5 py-2 rounded-full text-xs font-medium text-gray-400 hover:text-white border border-white/10 transition-all"
+                    data-filter="article">
+                    บทความ
+                </button>
+            </div>
+
+            <!-- Filterable cards -->
+            <div id="works-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+
+                <!-- Work 1: Research -->
+                <div class="work-card glass-card rounded-2xl overflow-hidden" data-category="research">
+                    <div
+                        class="h-44 bg-gradient-to-br from-primary-600/20 via-primary-500/10 to-secondary-500/15 flex items-center justify-center relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE4YzMuMzE0IDAgNi0yLjY4NiA2LTZzLTIuNjg2LTYtNi02LTYgMi42ODYtNiA2IDIuNjg2IDYgNiA2ek0yNCAxOGMzLjMxNCAwIDYtMi42ODYgNi02cy0yLjY4Ni02LTYtNi02IDIuNjg2LTYgNiAyLjY4NiA2IDYgNnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-50">
+                        </div>
+                        <svg class="w-14 h-14 text-primary-300/50 relative z-10" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                        <div class="absolute top-3 left-3">
+                            <span
+                                class="badge-research px-2.5 py-0.5 rounded-full text-[10px] font-semibold text-white">ผลงานวิจัย</span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-base font-bold text-white mb-2 line-clamp-2">
+                            การตรวจสอบค่าความคลาดเคลื่อนในข้อมูลแบบปรับตัวได้</h3>
+                        <p class="text-xs text-gray-400/80 mb-4 line-clamp-3">
+                            งานวิจัยด้านการพัฒนาวิธีการตรวจสอบค่าความคลาดเคลื่อนในชุดข้อมูลโดยใช้แนวทางแบบปรับตัวได้</p>
+                        <div class="flex gap-2">
+                            <button
+                                onclick="openPdfViewer('projet/การตรวจสอบค่าความคลาดเคลื่อนในข้อมูลแบบปรับตัวได้.pdf', 'การตรวจสอบค่าความคลาดเคลื่อนในข้อมูลแบบปรับตัวได้')"
+                                class="flex-1 text-center px-3 py-2 bg-primary-500/15 hover:bg-primary-500/25 text-primary-300 rounded-lg text-xs font-medium transition-all hover:scale-105">
+                                อ่าน
+                            </button>
+                            <button
+                                onclick="downloadPdf('projet/การตรวจสอบค่าความคลาดเคลื่อนในข้อมูลแบบปรับตัวได้.pdf', 'การตรวจสอบค่าความคลาดเคลื่อนในข้อมูลแบบปรับตัวได้.pdf')"
+                                class="px-3 py-2 glass hover:bg-white/8 text-gray-400 hover:text-white rounded-lg text-xs font-medium transition-all hover:scale-105">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work 2: Article -->
+                <div class="work-card glass-card rounded-2xl overflow-hidden" data-category="article">
+                    <div
+                        class="h-44 bg-gradient-to-br from-secondary-600/20 via-secondary-500/10 to-accent-500/15 flex items-center justify-center relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE4YzMuMzE0IDAgNi0yLjY4NiA2LTZzLTIuNjg2LTYtNi02LTYgMi42ODYtNiA2IDIuNjg2IDYgNiA2ek0yNCAxOGMzLjMxNCAwIDYtMi42ODYgNi02cy0yLjY4Ni02LTYtNi02IDIuNjg2LTYgNiAyLjY4NiA2IDYgNnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-50">
+                        </div>
+                        <svg class="w-14 h-14 text-secondary-300/50 relative z-10" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <div class="absolute top-3 left-3">
+                            <span
+                                class="badge-article px-2.5 py-0.5 rounded-full text-[10px] font-semibold text-white">บทความ</span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-base font-bold text-white mb-2 line-clamp-2">
+                            ปัจจัยที่มีผลต่อความสุขในการเรียนของนักศึกษา มรภ.เชียงใหม่</h3>
+                        <p class="text-xs text-gray-400/80 mb-4 line-clamp-3">
+                            ศึกษาปัจจัยที่ส่งผลต่อความสุขในการเรียนรู้ของนักศึกษา มหาวิทยาลัยราชภัฏเชียงใหม่ ศูนย์แม่ริม
+                        </p>
+                        <div class="flex gap-2">
+                            <button
+                                onclick="openPdfViewer('projet/ปัจจัยที่มีผลต่อความสุขในการเรียนของนักศึกษามหาวิทยาลัยราชภัฏเชียงใหม่ ศูนย์แม่ริม.pdf', 'ปัจจัยที่มีผลต่อความสุขในการเรียนของนักศึกษา')"
+                                class="flex-1 text-center px-3 py-2 bg-secondary-500/15 hover:bg-secondary-500/25 text-secondary-300 rounded-lg text-xs font-medium transition-all hover:scale-105">
+                                อ่าน
+                            </button>
+                            <button
+                                onclick="downloadPdf('projet/ปัจจัยที่มีผลต่อความสุขในการเรียนของนักศึกษามหาวิทยาลัยราชภัฏเชียงใหม่ ศูนย์แม่ริม.pdf', 'ปัจจัยที่มีผลต่อความสุขในการเรียน.pdf')"
+                                class="px-3 py-2 glass hover:bg-white/8 text-gray-400 hover:text-white rounded-lg text-xs font-medium transition-all hover:scale-105">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Work 3: Article -->
+                <div class="work-card glass-card rounded-2xl overflow-hidden" data-category="article">
+                    <div
+                        class="h-44 bg-gradient-to-br from-accent-600/20 via-accent-500/10 to-primary-500/15 flex items-center justify-center relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE4YzMuMzE0IDAgNi0yLjY4NiA2LTZzLTIuNjg2LTYtNi02LTYgMi42ODYtNiA2IDIuNjg2IDYgNiA2ek0yNCAxOGMzLjMxNCAwIDYtMi42ODYgNi02cy0yLjY4Ni02LTYtNi02IDIuNjg2LTYgNiAyLjY4NiA2IDYgNnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-50">
+                        </div>
+                        <svg class="w-14 h-14 text-accent-300/50 relative z-10" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                        <div class="absolute top-3 left-3">
+                            <span
+                                class="badge-article px-2.5 py-0.5 rounded-full text-[10px] font-semibold text-white">บทความ</span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-base font-bold text-white mb-2 line-clamp-2">
+                            การพัฒนาสมการถดถอยเชิงเส้นพหุคูณเพื่อคาดการณ์การเผาผลาญพลังงาน</h3>
+                        <p class="text-xs text-gray-400/80 mb-4 line-clamp-3">การพัฒนาสมการถดถอยเชิงเส้นพหุคูณ (Multiple
+                            Linear Regression) เพื่อคาดการณ์การเผาผลาญพลังงาน</p>
+                        <div class="flex gap-2">
+                            <button
+                                onclick="openPdfViewer('projet/การพัฒนาสมการถดถอยเชิงเส้นพหุคูณเพื่อคาดการณ์การเผาผลาญพลังงาน.pdf', 'การพัฒนาสมการถดถอยเชิงเส้นพหุคูณเพื่อคาดการณ์การเผาผลาญพลังงาน')"
+                                class="flex-1 text-center px-3 py-2 bg-accent-500/15 hover:bg-accent-500/25 text-accent-300 rounded-lg text-xs font-medium transition-all hover:scale-105">
+                                อ่าน
+                            </button>
+                            <button
+                                onclick="downloadPdf('projet/การพัฒนาสมการถดถอยเชิงเส้นพหุคูณเพื่อคาดการณ์การเผาผลาญพลังงาน.pdf', 'การพัฒนาสมการถดถอยเชิงเส้นพหุคูณ.pdf')"
+                                class="px-3 py-2 glass hover:bg-white/8 text-gray-400 hover:text-white rounded-lg text-xs font-medium transition-all hover:scale-105">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative py-14 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-surface-900 via-surface-800/50 to-surface-900"></div>
+        <div class="absolute inset-0 mesh-gradient opacity-20"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-2.5 mb-5">
+                    <div
+                        class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <span class="text-lg font-bold text-gradient">Research Port</span>
+                </div>
+                <p class="text-gray-500 text-xs mb-4">รวบรวมผลงานวิจัยและบทความทางวิชาการ</p>
+                <div class="h-px w-16 mx-auto bg-gradient-to-r from-transparent via-primary-500/30 to-transparent mb-4">
+                </div>
+                <p class="text-gray-600 text-[11px]">&copy; 2026 Research Port. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PDF Viewer Modal -->
+    <div id="pdf-modal" class="modal-overlay fixed inset-0 z-[9999] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closePdfViewer()"></div>
+        <div
+            class="modal-content relative w-full max-w-6xl h-[90vh] glass rounded-2xl overflow-hidden border border-white/10">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between px-5 py-3.5 border-b border-white/8 bg-surface-800/60">
+                <div class="flex items-center space-x-3">
+                    <div
+                        class="w-7 h-7 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <h3 id="pdf-modal-title" class="text-white font-semibold text-sm truncate max-w-[60vw]">Document
+                        Title</h3>
+                </div>
+                <button onclick="closePdfViewer()" class="p-1.5 rounded-lg hover:bg-white/10 transition-colors group">
+                    <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <!-- PDF iframe -->
+            <iframe id="pdf-iframe" class="w-full h-[calc(90vh-56px)] bg-gray-900" src="" title="PDF Viewer"></iframe>
+        </div>
+    </div>
+
+    <!-- Back to top button -->
+    <button id="back-to-top"
+        class="fixed bottom-8 right-8 z-50 w-11 h-11 rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center shadow-lg shadow-primary-500/20 opacity-0 invisible transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-primary-500/25"
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // ============================================
+        // Particle Canvas Animation
+        // ============================================
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.4;
+                this.speedY = (Math.random() - 0.5) * 0.4;
+                this.opacity = Math.random() * 0.4 + 0.1;
+                // Use primary(217), secondary(187), or accent(160) hue
+                const hues = [217, 187, 160];
+                this.hue = hues[Math.floor(Math.random() * hues.length)];
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `hsla(${this.hue}, 70%, 65%, ${this.opacity})`;
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            resizeCanvas();
+            particles = [];
+            const count = Math.min(60, Math.floor((canvas.width * canvas.height) / 20000));
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw connections
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 130) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(37, 99, 235, ${0.04 * (1 - distance / 130)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            requestAnimationFrame(animateParticles);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        initParticles();
+        animateParticles();
+
+        // ============================================
+        // Scroll Progress Bar
+        // ============================================
+        const scrollProgress = document.getElementById('scroll-progress');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollTop / docHeight;
+            scrollProgress.style.transform = `scaleX(${progress})`;
+        });
+
+        // ============================================
+        // Navbar Background on Scroll
+        // ============================================
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass', 'shadow-lg', 'shadow-black/20');
+            } else {
+                navbar.classList.remove('glass', 'shadow-lg', 'shadow-black/20');
+            }
+        });
+
+        // ============================================
+        // Mobile Menu Toggle
+        // ============================================
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        let menuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('hidden');
+
+            if (menuOpen) {
+                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            } else {
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            }
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuOpen = false;
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            });
+        });
+
+        // ============================================
+        // Scroll Reveal Animation (IntersectionObserver)
+        // ============================================
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ============================================
+        // Filter System
+        // ============================================
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const workCards = document.querySelectorAll('.work-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+
+                workCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                        card.style.display = '';
+                        card.style.animation = 'slideUp 0.5s ease-out';
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // ============================================
+        // PDF Viewer
+        // ============================================
+        function openPdfViewer(pdfPath, title) {
+            const modal = document.getElementById('pdf-modal');
+            const iframe = document.getElementById('pdf-iframe');
+            const modalTitle = document.getElementById('pdf-modal-title');
+
+            modalTitle.textContent = title;
+            iframe.src = pdfPath;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePdfViewer() {
+            const modal = document.getElementById('pdf-modal');
+            const iframe = document.getElementById('pdf-iframe');
+
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+
+            setTimeout(() => {
+                iframe.src = '';
+            }, 300);
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closePdfViewer();
+            }
+        });
+
+        // ============================================
+        // Download PDF
+        // ============================================
+        function downloadPdf(pdfPath, fileName) {
+            const a = document.createElement('a');
+            a.href = pdfPath;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // ============================================
+        // Back to Top Button
+        // ============================================
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        // ============================================
+        // Active Nav Link Highlight
+        // ============================================
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ============================================
+        // Smooth entry animation on page load
+        // ============================================
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+
+</body>
+
+</html>
