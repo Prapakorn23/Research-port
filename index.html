@@ -149,11 +149,11 @@
         }
 
         .glass-card:hover {
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(37, 99, 235, 0.25);
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.12),
-                0 0 30px rgba(6, 182, 212, 0.06);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(37, 99, 235, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(37, 99, 235, 0.08),
+                0 0 20px rgba(6, 182, 212, 0.04);
         }
 
         /* Text gradients */
@@ -291,6 +291,28 @@
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.2), rgba(6, 182, 212, 0.2), transparent);
         }
+
+        /* Stats counter */
+        .counter-number {
+            font-variant-numeric: tabular-nums;
+            font-feature-settings: 'tnum';
+        }
+
+        /* Journal badge */
+        .badge-journal {
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+        }
+
+        /* Works grid transition */
+        #works-grid {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Focus ring utility */
+        .focus-ring:focus-visible {
+            outline: 2px solid rgba(96, 165, 250, 0.5);
+            outline-offset: 2px;
+        }
     </style>
 </head>
 
@@ -373,30 +395,30 @@
         <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
             <div class="animate-fade-in">
                 <!-- Decorative line -->
-                <div class="flex items-center justify-center space-x-4 mb-8">
-                    <div class="h-px w-12 bg-gradient-to-r from-transparent to-primary-400/60"></div>
-                    <span class="text-secondary-300/80 text-xs font-medium tracking-[0.3em] uppercase">Prapakorn Kanjina
+                <div class="flex items-center justify-center space-x-4 mb-10">
+                    <div class="h-px w-16 bg-gradient-to-r from-transparent to-primary-400/60"></div>
+                    <span class="text-secondary-300/70 text-xs font-medium tracking-[0.25em] uppercase">Prapakorn Kanjina
                         Portfolio</span>
-                    <div class="h-px w-12 bg-gradient-to-l from-transparent to-primary-400/60"></div>
+                    <div class="h-px w-16 bg-gradient-to-l from-transparent to-primary-400/60"></div>
                 </div>
 
-                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
+                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight tracking-tight">
                     <span class="text-gradient">ผลงานวิจัย</span>
                     <br>
-                    <span class="text-white/80 text-4xl sm:text-5xl md:text-6xl lg:text-7xl">และ</span>
+                    <span class="text-white/70 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light">และ</span>
                     <span class="text-gradient">บทความ</span>
                 </h1>
 
-                <p class="text-base sm:text-lg text-gray-400/90 max-w-xl mx-auto mb-10 leading-relaxed">
+                <p class="text-lg md:text-xl text-gray-400 font-light max-w-xl mx-auto mb-14 leading-relaxed">
                     รวบรวมผลงานวิจัยและบทความทางวิชาการ
                     <br class="hidden sm:block">
                     ด้านสถิติ การวิเคราะห์ข้อมูล และการศึกษา
                 </p>
 
                 <!-- CTA buttons -->
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
                     <a href="#research"
-                        class="group relative px-7 py-3.5 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-xl font-semibold text-white text-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/20 hover:scale-105">
+                        class="focus-ring group relative px-7 py-3.5 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-xl font-semibold text-white text-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/20 hover:scale-105 active:scale-[0.98]">
                         <span class="relative z-10 flex items-center space-x-2">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -409,13 +431,29 @@
                         </div>
                     </a>
                     <a href="#articles"
-                        class="px-7 py-3.5 glass rounded-xl font-semibold text-gray-300 text-sm hover:text-white hover:bg-white/8 transition-all duration-300 hover:scale-105 flex items-center space-x-2">
+                        class="focus-ring px-7 py-3.5 glass rounded-xl font-semibold text-gray-300 text-sm hover:text-white hover:bg-white/8 transition-all duration-300 hover:scale-105 active:scale-[0.98] flex items-center space-x-2">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
                         </svg>
                         <span>ดูบทความ</span>
                     </a>
+                </div>
+
+                <!-- Stats Counter Strip -->
+                <div class="grid grid-cols-3 gap-6 max-w-md mx-auto">
+                    <div class="text-center">
+                        <div class="counter-number text-3xl md:text-4xl font-bold text-gradient mb-1" data-target="1">0</div>
+                        <div class="text-[11px] text-gray-500 font-medium tracking-wider uppercase">Research</div>
+                    </div>
+                    <div class="text-center border-x border-white/5 px-4">
+                        <div class="counter-number text-3xl md:text-4xl font-bold text-gradient mb-1" data-target="3">0</div>
+                        <div class="text-[11px] text-gray-500 font-medium tracking-wider uppercase">Articles</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="counter-number text-3xl md:text-4xl font-bold text-gradient mb-1" data-target="4">0</div>
+                        <div class="text-[11px] text-gray-500 font-medium tracking-wider uppercase">Published</div>
+                    </div>
                 </div>
             </div>
 
@@ -433,7 +471,7 @@
     </section>
 
     <!-- Research Section -->
-    <section id="research" class="relative py-24 overflow-hidden">
+    <section id="research" class="relative py-28 md:py-32 overflow-hidden">
         <div class="absolute inset-0 bg-surface-900"></div>
         <div class="orb w-80 h-80 bg-primary-500 -top-40 -right-40 animate-float"></div>
 
@@ -444,7 +482,7 @@
                     <span class="w-1.5 h-1.5 rounded-full bg-primary-400 mr-2 animate-pulse"></span>
                     <span class="text-xs text-primary-300 font-medium tracking-wider uppercase">Research</span>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-3">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 tracking-tight">
                     <span class="text-gradient">ผลงานวิจัย</span>
                 </h2>
                 <p class="text-gray-400/80 max-w-lg mx-auto">ผลงานวิจัยที่ผ่านการตีพิมพ์และเผยแพร่</p>
@@ -477,7 +515,7 @@
                             <!-- Right: Content -->
                             <div class="flex-1">
                                 <h3
-                                    class="text-xl md:text-2xl font-bold text-white mb-3 leading-snug group-hover:text-primary-300 transition-colors">
+                                    class="text-xl md:text-2xl font-semibold text-white mb-3 leading-snug group-hover:text-primary-300 transition-colors">
                                     การตรวจสอบค่าความคลาดเคลื่อนในข้อมูลแบบปรับตัวได้
                                 </h3>
 
@@ -537,7 +575,7 @@
     <div class="section-divider max-w-4xl mx-auto"></div>
 
     <!-- Articles Section -->
-    <section id="articles" class="relative py-24 overflow-hidden">
+    <section id="articles" class="relative py-28 md:py-32 overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-b from-surface-900 via-surface-800/30 to-surface-900"></div>
         <div class="orb w-96 h-96 bg-secondary-500 -bottom-48 -left-48 animate-float-delayed"></div>
 
@@ -548,7 +586,7 @@
                     <span class="w-1.5 h-1.5 rounded-full bg-secondary-400 mr-2 animate-pulse"></span>
                     <span class="text-xs text-secondary-300 font-medium tracking-wider uppercase">Articles</span>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-3">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 tracking-tight">
                     <span class="text-gradient">บทความ</span>
                 </h2>
                 <p class="text-gray-400/80 max-w-lg mx-auto">บทความทางวิชาการที่ได้รับการตีพิมพ์</p>
@@ -558,7 +596,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
 
                 <!-- Article Card 1 -->
-                <article class="reveal glass-card rounded-2xl overflow-hidden group"
+                <article class="reveal glass-card rounded-2xl overflow-hidden group cursor-pointer"
                     aria-label="บทความวิชาการ: ปัจจัยที่มีผลต่อความสุขในการเรียน">
                     <!-- Top gradient border -->
                     <div class="h-0.5 bg-gradient-to-r from-secondary-500 via-secondary-400 to-accent-500"></div>
@@ -578,7 +616,7 @@
 
                         <!-- Article title -->
                         <h3
-                            class="text-lg md:text-xl font-bold text-white mb-3 leading-snug group-hover:text-secondary-300 transition-colors">
+                            class="text-lg md:text-xl font-semibold text-white mb-3 leading-snug group-hover:text-secondary-300 transition-colors">
                             ปัจจัยที่มีผลต่อความสุขในการเรียนของนักศึกษามหาวิทยาลัยราชภัฏเชียงใหม่ ศูนย์แม่ริม
                         </h3>
 
@@ -614,7 +652,7 @@
                 </article>
 
                 <!-- Article Card 2 -->
-                <article class="reveal glass-card rounded-2xl overflow-hidden group" style="transition-delay: 0.12s;"
+                <article class="reveal glass-card rounded-2xl overflow-hidden group cursor-pointer" style="transition-delay: 0.12s;"
                     aria-label="บทความวิชาการ: การพัฒนาสมการถดถอยเชิงเส้นพหุคูณ">
                     <!-- Top gradient border -->
                     <div class="h-0.5 bg-gradient-to-r from-accent-500 via-accent-400 to-secondary-500"></div>
@@ -634,7 +672,7 @@
 
                         <!-- Article title -->
                         <h3
-                            class="text-lg md:text-xl font-bold text-white mb-3 leading-snug group-hover:text-accent-300 transition-colors">
+                            class="text-lg md:text-xl font-semibold text-white mb-3 leading-snug group-hover:text-accent-300 transition-colors">
                             การพัฒนาสมการถดถอยเชิงเส้นพหุคูณเพื่อคาดการณ์การเผาผลาญพลังงานของผู้เข้าใช้บริการยิม
                         </h3>
 
@@ -669,6 +707,61 @@
                     </div>
                 </article>
 
+                <!-- Article Card 3 -->
+                <article class="reveal glass-card rounded-2xl overflow-hidden group cursor-pointer" style="transition-delay: 0.24s;"
+                    aria-label="บทความวิชาการ: Adaptive Cross-Validation Under Concept Drift for Time Series Forecasting">
+                    <!-- Top gradient border -->
+                    <div class="h-0.5 bg-gradient-to-r from-primary-500 via-primary-400 to-secondary-500"></div>
+
+                    <div class="p-7">
+                        <!-- Badges row -->
+                        <div class="flex flex-wrap items-center gap-2 mb-4">
+                            <span
+                                class="badge-article px-2.5 py-1 rounded-full text-[11px] font-semibold text-white inline-flex items-center gap-1">
+                                📰 Journal
+                            </span>
+                            <span
+                                class="px-2.5 py-1 rounded-full text-[11px] font-semibold text-white bg-gradient-to-r from-primary-500 to-primary-600 inline-flex items-center gap-1">
+                                📅 2026
+                            </span>
+                        </div>
+
+                        <!-- Article title -->
+                        <h3
+                            class="text-lg md:text-xl font-semibold text-white mb-3 leading-snug group-hover:text-primary-300 transition-colors">
+                            Adaptive Cross-Validation Under Concept Drift for Time Series Forecasting
+                        </h3>
+
+                        <!-- Publication details -->
+                        <div class="flex items-start gap-2 mb-5">
+                            <span class="text-base mt-0.5 flex-shrink-0">📰</span>
+                            <p class="text-gray-400/80 text-sm leading-relaxed">
+                                Journal of Computer Science
+                            </p>
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="h-px w-full bg-gradient-to-r from-transparent via-white/8 to-transparent mb-5">
+                        </div>
+
+                        <!-- Action buttons -->
+                        <div class="flex flex-col sm:flex-row gap-2.5">
+                            <button
+                                onclick="openPdfViewer('projet/Adaptive Cross-Validation Under Concept Drift for Time (Journal).pdf', 'Adaptive Cross-Validation Under Concept Drift for Time Series Forecasting')"
+                                class="inline-flex items-center justify-center px-5 py-2.5 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl text-xs font-medium text-white hover:from-primary-400 hover:to-primary-500 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/20 hover:scale-105 group/btn">
+                                <span class="mr-2 text-sm group-hover/btn:animate-bounce">📄</span>
+                                ดูบทความ
+                            </button>
+                            <button
+                                onclick="downloadPdf('projet/Adaptive Cross-Validation Under Concept Drift for Time (Journal).pdf', 'Adaptive_Cross_Validation.pdf')"
+                                class="inline-flex items-center justify-center px-5 py-2.5 glass rounded-xl text-xs font-medium text-gray-300 hover:text-white hover:bg-white/8 transition-all duration-300 hover:scale-105 group/btn">
+                                <span class="mr-2 text-sm group-hover/btn:animate-bounce">⬇️</span>
+                                ดาวน์โหลด
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
             </div>
         </div>
     </section>
@@ -677,7 +770,7 @@
     <div class="section-divider max-w-4xl mx-auto"></div>
 
     <!-- All Works Section (with filter) -->
-    <section id="all-works" class="relative py-24 overflow-hidden">
+    <section id="all-works" class="relative py-28 md:py-32 overflow-hidden">
         <div class="absolute inset-0 bg-surface-900"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -687,28 +780,28 @@
                     <span class="w-1.5 h-1.5 rounded-full bg-accent-400 mr-2 animate-pulse"></span>
                     <span class="text-xs text-accent-300 font-medium tracking-wider uppercase">All Works</span>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-3">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 tracking-tight">
                     <span class="text-gradient">ผลงานทั้งหมด</span>
                 </h2>
                 <p class="text-gray-400/80 max-w-lg mx-auto">เลือกดูผลงานตามประเภท</p>
             </div>
 
             <!-- Filter buttons -->
-            <div class="reveal flex flex-wrap justify-center gap-2.5 mb-10">
+            <div class="reveal flex flex-wrap justify-center gap-2.5 mb-12">
                 <button
-                    class="filter-btn active px-5 py-2 rounded-full text-xs font-medium text-white border border-white/10 transition-all"
+                    class="focus-ring filter-btn active px-5 py-2 rounded-full text-xs font-medium text-white border border-white/10 transition-all"
                     data-filter="all">
-                    ทั้งหมด
+                    ทั้งหมด <span class="ml-1 opacity-70">(4)</span>
                 </button>
                 <button
-                    class="filter-btn px-5 py-2 rounded-full text-xs font-medium text-gray-400 hover:text-white border border-white/10 transition-all"
+                    class="focus-ring filter-btn px-5 py-2 rounded-full text-xs font-medium text-gray-400 hover:text-white border border-white/10 transition-all"
                     data-filter="research">
-                    ผลงานวิจัย
+                    ผลงานวิจัย <span class="ml-1 opacity-70">(1)</span>
                 </button>
                 <button
-                    class="filter-btn px-5 py-2 rounded-full text-xs font-medium text-gray-400 hover:text-white border border-white/10 transition-all"
+                    class="focus-ring filter-btn px-5 py-2 rounded-full text-xs font-medium text-gray-400 hover:text-white border border-white/10 transition-all"
                     data-filter="article">
-                    บทความ
+                    บทความ <span class="ml-1 opacity-70">(3)</span>
                 </button>
             </div>
 
@@ -836,31 +929,133 @@
                     </div>
                 </div>
 
+                <!-- Work 4: Article -->
+                <div class="work-card glass-card rounded-2xl overflow-hidden" data-category="article">
+                    <div
+                        class="h-44 bg-gradient-to-br from-primary-600/20 via-primary-500/10 to-secondary-500/15 flex items-center justify-center relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE4YzMuMzE0IDAgNi0yLjY4NiA2LTZzLTIuNjg2LTYtNi02LTYgMi42ODYtNiA2IDIuNjg2IDYgNiA2ek0yNCAxOGMzLjMxNCAwIDYtMi42ODYgNi02cy0yLjY4Ni02LTYtNi02IDIuNjg2LTYgNiAyLjY4NiA2IDYgNnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-50">
+                        </div>
+                        <svg class="w-14 h-14 text-primary-300/50 relative z-10" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                        </svg>
+                        <div class="absolute top-3 left-3">
+                            <span
+                                class="badge-article px-2.5 py-0.5 rounded-full text-[10px] font-semibold text-white">บทความ</span>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-base font-bold text-white mb-2 line-clamp-2">
+                            Adaptive Cross-Validation Under Concept Drift for Time Series Forecasting</h3>
+                        <p class="text-xs text-gray-400/80 mb-4 line-clamp-3">Journal of Computer Science</p>
+                        <div class="flex gap-2">
+                            <button
+                                onclick="openPdfViewer('projet/Adaptive Cross-Validation Under Concept Drift for Time (Journal).pdf', 'Adaptive Cross-Validation Under Concept Drift for Time Series Forecasting')"
+                                class="flex-1 text-center px-3 py-2 bg-primary-500/15 hover:bg-primary-500/25 text-primary-300 rounded-lg text-xs font-medium transition-all hover:scale-105">
+                                อ่าน
+                            </button>
+                            <button
+                                onclick="downloadPdf('projet/Adaptive Cross-Validation Under Concept Drift for Time (Journal).pdf', 'Adaptive_Cross_Validation.pdf')"
+                                class="px-3 py-2 glass hover:bg-white/8 text-gray-400 hover:text-white rounded-lg text-xs font-medium transition-all hover:scale-105">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="relative py-14 overflow-hidden">
+    <footer id="contact" class="relative py-20 overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-t from-surface-900 via-surface-800/50 to-surface-900"></div>
         <div class="absolute inset-0 mesh-gradient opacity-20"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <div class="flex items-center justify-center space-x-2.5 mb-5">
-                    <div
-                        class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
-                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
+            <!-- Footer Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mb-12">
+
+                <!-- Column 1: Logo & Tagline -->
+                <div>
+                    <div class="flex items-center space-x-2.5 mb-4">
+                        <div
+                            class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                        </div>
+                        <span class="text-lg font-bold text-gradient">Research Port</span>
                     </div>
-                    <span class="text-lg font-bold text-gradient">Research Port</span>
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
+                        รวบรวมผลงานวิจัยและบทความทางวิชาการ ด้านสถิติ การวิเคราะห์ข้อมูล และการศึกษา
+                    </p>
                 </div>
-                <p class="text-gray-500 text-xs mb-4">รวบรวมผลงานวิจัยและบทความทางวิชาการ</p>
-                <div class="h-px w-16 mx-auto bg-gradient-to-r from-transparent via-primary-500/30 to-transparent mb-4">
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 class="text-sm font-semibold text-white mb-4 tracking-wider uppercase">ลิงก์ด่วน</h4>
+                    <nav class="flex flex-col space-y-2.5">
+                        <a href="#hero"
+                            class="text-sm text-gray-500 hover:text-primary-300 transition-colors duration-200">หน้าแรก</a>
+                        <a href="#research"
+                            class="text-sm text-gray-500 hover:text-primary-300 transition-colors duration-200">ผลงานวิจัย</a>
+                        <a href="#articles"
+                            class="text-sm text-gray-500 hover:text-primary-300 transition-colors duration-200">บทความ</a>
+                        <a href="#all-works"
+                            class="text-sm text-gray-500 hover:text-primary-300 transition-colors duration-200">ผลงานทั้งหมด</a>
+                    </nav>
                 </div>
+
+                <!-- Column 3: Contact & Social -->
+                <div>
+                    <h4 class="text-sm font-semibold text-white mb-4 tracking-wider uppercase">ติดต่อ</h4>
+                    <div class="flex flex-col space-y-3">
+                        <!-- Email -->
+                        <a href="mailto:prapakorn@example.com"
+                            class="inline-flex items-center gap-2.5 text-sm text-gray-500 hover:text-primary-300 transition-colors duration-200 group">
+                            <svg class="w-4 h-4 text-gray-600 group-hover:text-primary-400 transition-colors" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                            </svg>
+                            prapakorn@example.com
+                        </a>
+                        <!-- GitHub -->
+                        <a href="https://github.com/" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2.5 text-sm text-gray-500 hover:text-primary-300 transition-colors duration-200 group">
+                            <svg class="w-4 h-4 text-gray-600 group-hover:text-primary-400 transition-colors"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                            GitHub
+                        </a>
+                        <!-- LinkedIn -->
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2.5 text-sm text-gray-500 hover:text-primary-300 transition-colors duration-200 group">
+                            <svg class="w-4 h-4 text-gray-600 group-hover:text-primary-400 transition-colors"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom bar -->
+            <div
+                class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p class="text-gray-600 text-[11px]">&copy; 2026 Research Port. All rights reserved.</p>
+                <p class="text-gray-700 text-[10px]">Built with ❤️ by Prapakorn Kanjina</p>
             </div>
         </div>
     </footer>
@@ -1190,6 +1385,71 @@
         // ============================================
         window.addEventListener('load', () => {
             document.body.classList.add('loaded');
+        });
+
+        // ============================================
+        // Stats Counter Animation
+        // ============================================
+        const counterElements = document.querySelectorAll('.counter-number[data-target]');
+        let countersAnimated = false;
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !countersAnimated) {
+                    countersAnimated = true;
+                    counterElements.forEach(counter => {
+                        const target = parseInt(counter.dataset.target);
+                        const duration = 1500;
+                        const startTime = performance.now();
+
+                        function updateCounter(currentTime) {
+                            const elapsed = currentTime - startTime;
+                            const progress = Math.min(elapsed / duration, 1);
+                            // Ease-out cubic
+                            const eased = 1 - Math.pow(1 - progress, 3);
+                            const currentVal = Math.round(eased * target);
+                            counter.textContent = currentVal;
+
+                            if (progress < 1) {
+                                requestAnimationFrame(updateCounter);
+                            }
+                        }
+
+                        requestAnimationFrame(updateCounter);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counterElements.forEach(el => counterObserver.observe(el));
+
+        // ============================================
+        // Smooth Scroll with Navbar Offset
+        // ============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetEl = document.querySelector(targetId);
+                if (!targetEl) return;
+
+                const navbarHeight = document.getElementById('navbar').offsetHeight;
+                const targetPosition = targetEl.getBoundingClientRect().top + window.scrollY - navbarHeight - 16;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu if open
+                if (menuOpen) {
+                    menuOpen = false;
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+                }
+            });
         });
     </script>
 
